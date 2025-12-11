@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>暗号メッセージツール ＋ 意見箱</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="container">
+    <header>
+      <h1>暗号メッセージツール — 意見箱付き</h1>
+      <p class="lead">遊びの暗号から実用のAESまで。送信前に暗号化して、あなた宛の意見箱へ届けることもできます。</p>
+    </header>
+
+    <section class="card">
+      <h2>メッセージ暗号化／復号</h2>
+
+      <div class="form-grid">
+        <label>動作
+          <select id="mode">
+            <option value="encrypt">暗号化</option>
+            <option value="decrypt">復号</option>
+          </select>
+        </label>
+
+        <label>方式
+          <select id="cipher">
+            <option value="caesar">Caesar（シーザー）</option>
+            <option value="vigenere">Vigenère（ビジュネル）</option>
+            <option value="base64">Base64</option>
+            <option value="xor">XOR</option>
+            <option value="aesgcm">AES-GCM（推奨）</option>
+          </select>
+        </label>
+      </div>
+
+      <label>メッセージ
+        <textarea id="inputText" placeholder="ここにメッセージを入力"></textarea>
+      </label>
+
+      <div id="params"></div>
+
+      <div class="btn-row">
+        <button id="goBtn" class="btn primary">実行</button>
+        <button id="copyBtn" class="btn">コピー</button>
+        <button id="shareBtn" class="btn">共有リンク作成</button>
+      </div>
+
+      <label>結果
+        <pre id="output" class="output"></pre>
+      </label>
+
+      <p class="note">注：Caesar/Vigenère/XOR は学習・遊び向け。機密は必ず AES-GCM を使ってください。</p>
+    </section>
+
+    <section class="card">
+      <h2>意見箱（あなたにだけ届く）</h2>
+      <p>送信された意見はあなたのメールに届きます（Formspree等のサービス経由）。「暗号化して送る」を選べば、送信前にクライアント側でAES暗号化されます。</p>
+
+      <!-- Replace the ACTION URL with your Formspree (or other endpoint) -->
+      <form id="feedbackForm" action="https://formspree.io/f/mdkqwqer" method="POST" novalidate>
+        <label>久遠彌薙
+          <input type="text" name="sender_name" id="sender_name" placeholder="匿名でも可">
+        </label>
+
+        <label>メッセージ
+          <textarea name="message" id="feedbackMsg" required placeholder="ここに意見を書いてください"></textarea>
+        </label>
+
+        <div class="row small">
+          <label><input type="checkbox" id="encryptBeforeSend"> 暗号化して送る（AES-GCM）</label>
+          <label id="pwLabel" class="hidden">暗号化パスワード（受信者＝あなたが復号に使う）<input type="password" id="feedbackPW" placeholder="強いパスワードを入力"></label>
+        </div>
+
+        <!-- Hidden marker so you can see on server side if ciphertext was sent -->
+        <input type="hidden" name="encrypted" id="encryptedFlag" value="false">
+
+        <div class="btn-row">
+          <button type="submit" class="btn primary">送信する</button>
+          <button type="button" id="previewDecrypt" class="btn">受信後に復号する（ローカル）</button>
+        </div>
+
+        <p class="note small">※ Formspree等にそのまま届きます。AESで暗号化する場合、パスワードは別の安全な経路で受信者に共有して下さい（メール本文にパスワードを書かないで）。</p>
+      </form>
+    </section>
+
+    <footer class="card foot">
+      <p>ファイルを配布するときは `index.html`, `styles.css`, `app.js` を同じフォルダに置いてください。<br>何か機能追加したいなら手伝うよ。</p>
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

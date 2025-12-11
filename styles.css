@@ -1,0 +1,74 @@
+:root{
+  --bg:#0f1720;
+  --card:#0f1728;
+  --accent:#8b5e3c;
+  --muted:#9aa2a8;
+  --text:#f3efe6;
+  --glass: rgba(255,255,255,0.03);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background: linear-gradient(180deg,#07121a 0%, #07141a 60%);
+  color:var(--text);
+  font-family: "Noto Sans JP", system-ui, -apple-system, "Segoe UI", Roboto, "Hiragino Kaku Gothic ProN", sans-serif;
+  line-height:1.6;
+  padding:28px;
+}
+
+.container{
+  max-width:920px;
+  margin:0 auto;
+}
+
+header h1{
+  margin:0 0 6px 0;
+  font-size:1.6rem;
+  letter-spacing:0.4px;
+}
+.lead{color:var(--muted);margin:6px 0 18px 0}
+
+.card{
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius:12px;
+  padding:18px;
+  margin-bottom:18px;
+  box-shadow: 0 8px 30px rgba(2,6,10,0.6), inset 0 1px 0 rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.03);
+}
+
+.form-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-bottom:10px;
+}
+
+label{display:block;margin:8px 0}
+input[type="text"], input[type="password"], select, textarea{
+  width:100%;
+  padding:10px;
+  border-radius:8px;
+  border:1px solid rgba(255,255,255,0.05);
+  background:var(--glass);
+  color:var(--text);
+  outline:none;
+}
+textarea{min-height:120px;resize:vertical}
+
+.btn-row{display:flex;gap:10px;margin-top:10px}
+.btn{padding:8px 12px;border-radius:8px;border:0;background:rgba(255,255,255,0.04);color:var(--text);cursor:pointer}
+.btn.primary{background:linear-gradient(90deg,var(--accent), #b07a54); color:white}
+.btn:hover{transform:translateY(-1px)}
+.output{background:rgba(255,255,255,0.02);padding:12px;border-radius:8px;min-height:80px;border:1px dashed rgba(255,255,255,0.03)}
+
+.note{color:var(--muted);margin-top:8px}
+.small{font-size:0.9rem}
+
+.hidden{display:none}
+
+.row{display:flex;gap:8px;align-items:center}
+.row label{margin:0}
+
+.foot{font-size:0.9rem;color:var(--muted);text-align:center}
