@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>暗号メッセージツール</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <main class="container">
+    <header>
+      <h1>暗号メッセージツール</h1>
+      <p class="lead">遊びの暗号から実用のAESまでご自由にお使いください。</p>
+    </header>
+
+  <footer class="card">
+  <h1>移動先</h1>
+    <a href="../index.html">ホーム</a><p>最初へ飛べます。<br>
+    <a href="ango.html">暗号</a><p>暗号サイトへ飛べます。<br>
+    <a href="iken.html">意見提出</a><p>意見提出サイトへ飛べます。<br>
+  </footer>
+
+    <section class="card">
+      <h2>メッセージ暗号化／復号</h2>
+
+      <div class="form-grid">
+        <label>動作
+          <select id="mode">
+            <option value="encrypt">暗号化</option>
+            <option value="decrypt">復号</option>
+          </select>
+        </label>
+
+        <label>方式
+          <select id="cipher">
+            <option value="caesar">Caesar（シーザー）</option>
+            <option value="vigenere">Vigenère（ビジュネル）</option>
+            <option value="base64">Base64</option>
+            <option value="xor">XOR</option>
+            <option value="aesgcm">AES-GCM（推奨）</option>
+          </select>
+        </label>
+      </div>
+
+      <label>メッセージ
+        <textarea id="inputText" placeholder="ここにメッセージを入力"></textarea>
+      </label>
+
+      <div id="params"></div>
+
+      <div class="btn-row">
+        <button id="goBtn" class="btn primary">実行</button>
+        <button id="copyBtn" class="btn">コピー</button>
+        <button id="shareBtn" class="btn">共有リンク作成</button>
+      </div>
+
+      <label>結果
+        <pre id="output" class="output"></pre>
+      </label>
+
+      <p class="note">注：Caesar/Vigenère/XOR は学習・遊び向け。機密は必ず AES-GCM を使ってください。</p>
+    </section>
+
+    <section class="card">
+
+    <footer class="card foot">
+      <p>開発途中です。まだ不備がたくさんあります。<br>意見追加要素が欲しいなら、意見箱まで。<br>追加情報はこのサイト上にて記載します。<br>なお何か問題が起きても責任は取りかねます。</p>
+    </footer>
+    </section>
+  </main>
+
+  <script src="../app.js"></script>
+</body>
+</html>

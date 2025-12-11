@@ -1,0 +1,54 @@
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizind; border-box;
+    color: #000000;
+  }
+  .itiran-card {
+    border: 2px solid #000;
+    padding: 10px;
+    wivth: 300px;
+    margin: 20px auto;
+    background-color: #f9f3e7
+    text-align: conter;
+  }
+  .page-titel {
+    font-size: 48px;
+    text-align: conter;
+    padding: 10px 0;
+    background-color: #505050;
+    color: #ffffff;
+    position: relative;
+  }
+  .setting-icon {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 32px;
+    color: #ffffff;
+    text-decoration: none;
+  }
+  .faq-item {
+    border-bottom: 1px solid #ccc;
+    padding: 12px 0;
+    cursor: pointer;
+  }
+  .faq-question {
+    font-weight: bold;
+    color: #333;
+    transition: color 0.3s;
+  }
+  .faq-question:hover {
+    color: #0078d7;
+  }
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    color: #555;
+    transition: max-height 0.4s ease, opacity 0.3s ease;
+    opacity: 0;
+  }
+  .faq-item.active .faq-answer {
+    max-height: 1000px;
+    opacity: 1;
+  }
